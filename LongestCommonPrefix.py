@@ -3,28 +3,30 @@ from typing import List
 
 def longestCommonPrefix(strs: List[str]) -> str:
 
-    min_str = strs[0]
-    for s in strs:
-        if len(s) <= len(min_str):
-            min_str = s
-
-
-    for i in range(len(min_str),0,-1):
-        check = False
-        check_i = 0
-        print("i",i)
+    if len(strs) > 0:
+        min_str = strs[0]
         for s in strs:
+            if len(s) <= len(min_str):
+                min_str = s
+    else:
+        return ""
 
+    default = ""
 
-            check *= s.startswith(min_str)
-            if check == True:
-                print("fuck",i, s)
-                check_i = i
-                break;
+    for i in range(len(min_str), 0, -1):
+        prefix = min_str[:i]
+        print("prefix!", prefix)
 
-    print("check index",check_i)
+        check = 0
+        for s in strs:
+            if s.startswith(prefix) == True:
+                check += 1
+                print(i, s, check)
 
-    return min_str[:check_i]
+            if check == len(strs):
+                return prefix
+
+    return default
 
 
 if __name__ == '__main__':
