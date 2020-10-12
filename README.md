@@ -2,8 +2,11 @@
 
 [저자 깃허브](https://github.com/onlybooks/algorithm-interview.git)
 
+
+
 | 번호 | 제목 | 난이도 | 장 | 클리어 날짜 |
 | --- | --- | ---- | - | --- |
+| 0 | - | - | 1장, 2장 | 20201012 |
 | 1 | [유효한 팰린드롬](https://leetcode.com/problems/valid-palindrome/) | ★ | 6장. 문자열 조작 | |
 | 2 | [문자열 뒤집기](https://leetcode.com/problems/reverse-string/) | ★ | 6장. 문자열 조작 | |
 | 3 | [로그 파일 재정렬](https://leetcode.com/problems/reorder-data-in-log-files/) | ★ | 6장. 문자열 조작 ||
