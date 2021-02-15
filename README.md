@@ -1,10 +1,11 @@
-## <파이썬 알고리즘 인터뷰> 개인 공부
+# 코딩 테스트 준비 
+
+## 1. <파이썬 알고리즘 인터뷰> 개인 공부
 
 [저자 깃허브](https://github.com/onlybooks/algorithm-interview.git)
 
 
-
-| 번호 | 제목 | 난이도 | 장 | 클리어 날짜 |
+| 번호 | 제목 | 난이도 | 장 | 비고 |
 | --- | --- | ---- | - | --- |
 | 0 | - | - | 1장, 2장, 3장 | 20201013 |
 | 1 | [유효한 팰린드롬](https://leetcode.com/problems/valid-palindrome/) | ★ | 6장. 문자열 조작 | |
@@ -101,3 +102,10 @@
 | 93(문제 5) | [뉴스 클러스터링](https://programmers.co.kr/learn/courses/30/lessons/17677) | ★★ | 부록 B. 카카오 공채 문제 풀이 ||
 | 94(문제 6) | [프렌즈4블록](https://programmers.co.kr/learn/courses/30/lessons/17679) | ★★★ | 부록 B. 카카오 공채 문제 풀이 ||
 | 95(문제 7) | [추석 트래픽](https://programmers.co.kr/learn/courses/30/lessons/17676) | ★★★ | 부록 B. 카카오 공채 문제 풀이 ||
+
+## 2. 파이썬 코테 대비
+
+| 주차 | 알고리즘 | 링크 | 비고 |
+| --- | --- | --- | --- |
+| 1 | 다이나믹 프로그래밍 | https://www.acmicpc.net/problem/1003 |  |
+| 1 | bfs | https://www.acmicpc.net/problem/10451 |  |
