@@ -22,11 +22,10 @@
 16
 """
 import numpy as np
+from itertools import product
 
 
 def move_right(N, array):
-    # di = 0 right, di = 1 down
-    # di = 2 left, di = 3 up
 
     # 1. index move
     new_list = [[0] * N for _ in range(N)]
@@ -82,8 +81,8 @@ def move_down(N, array):
     new_list = [[0] * N for _ in range(N)]
 
     # 모든 노드 맨 끝으로 이동시키기
+    last = N - 1
     for yi in range(N):
-        last = N - 1
         is_sum = False  # sum은 한번만
         for xi in reversed(range(N)):
             node = array[xi][yi]
@@ -107,8 +106,8 @@ def move_up(N, array):
     new_list = [[0] * N for _ in range(N)]
 
     # 모든 노드 맨 끝으로 이동시키기
+    last = 0
     for yi in range(N):
-        last = 0
         is_sum = False  # sum은 한번만
         for xi in range(N):
             node = array[xi][yi]
@@ -121,13 +120,35 @@ def move_up(N, array):
                     new_list[last][yi] = node * 2
                     is_sum = True
                 else:
-                    last -= 1
+                    last += 1
                     new_list[last][yi] = node
     return new_list
 
 
 def max_element(array):
     return max(map(max, array))
+
+
+def move_by_case(case):
+    cmylist = mylist.copy()
+    for d in case:
+        if d == 0:
+            newlist = move_right(N, cmylist)
+            print("move right", newlist)
+            cmylist = newlist
+        elif d == 1:
+            newlist = move_left(N, cmylist)
+            print("move left", newlist)
+            cmylist = newlist
+        elif d == 2:
+            newlist = move_down(N, cmylist)
+            print("move down", newlist)
+            cmylist = newlist
+        elif d == 3:
+            newlist = move_up(N, cmylist)
+            print("move up", newlist)
+            cmylist = newlist
+    return cmylist
 
 
 if __name__ == '__main__':
@@ -140,42 +161,37 @@ if __name__ == '__main__':
     print()
 
     # 2. 최대값 찾기
-    max_number = max_element(mylist)
-    count = 0
 
-    #di =
+    di = [0, 1, 2, 3]  # right, left, down, up
 
-    di = [0, 1, 2, 3] # right, left, down, up
-    while count < 5:
-        if di is not None:
-            for d in di:
-                if di == 0:
-                    newlist = move_right(N, mylist)
-                    print("move right", newlist)
-                    mylist = newlist
-                elif di == 1:
-                    newlist = move_left(N, mylist)
-                    print("move left",newlist)
-                    if newlist == mylist:
-                        di.remove(1)
-                    else:
-                        mylist = newlist
-                elif di == 2:
-                    newlist = move_down(N, mylist)
-                    print("move down", newlist)
-                    if newlist == mylist:
-                        di.remove(2)
-                    else:
-                        mylist = newlist
-                elif di == 3:
-                    newlist = move_up(N, mylist)
-                    print("move up", newlist)
-                    if newlist == mylist:
-                        di.remove(3)
-                    else:
-                        mylist = newlist
-        else:
-            break;
-            break;
+    cases = product(range(4),range(4),range(4),range(4),range(4))
+    max_number_list = []
 
-    print(max_element(newlist))
+    move_by_case([0,0,0,0])
+    move_by_case([2,2,2,2])
+
+    # for case in cases:
+    #     cmylist = mylist.copy()
+    #     print(case, "#" * 40)
+    #     for d in case:
+    #         if d == 0:
+    #             newlist = move_right(N, cmylist)
+    #             print("move right", newlist)
+    #             cmylist = newlist
+    #         elif d == 1:
+    #             newlist = move_left(N, cmylist)
+    #             print("move left", newlist)
+    #             cmylist = newlist
+    #         elif d == 2:
+    #             newlist = move_down(N, cmylist)
+    #             print("move down", newlist)
+    #             cmylist = newlist
+    #         elif d == 3:
+    #             newlist = move_up(N, cmylist)
+    #             print("move up", newlist)
+    #             cmylist = newlist
+    #
+    #     max_number_list.append(max_element(cmylist))
+
+    print(max_number_list)
+    print(max(max_number_list))
