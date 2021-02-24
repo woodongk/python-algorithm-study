@@ -33,7 +33,6 @@ def move_right(N, array):
     # 모든 노드 맨 끝으로 이동시키기
     for xi in range(N):
         last = N - 1
-        is_sum = False  # sum은 한번만
         for yi in reversed(range(N)):
             node = array[xi][yi]
             # 노드가 없으면 배치
@@ -41,9 +40,8 @@ def move_right(N, array):
                 new_list[xi][last] = node
             # 노드가 있으면 비교하고 같으면 두배, 안 같으면 last -1
             else:
-                if (new_list[xi][last] == node) & (is_sum == False):
+                if new_list[xi][last] == node:
                     new_list[xi][last] = node * 2
-                    is_sum = True
                 else:
                     last -= 1
                     new_list[xi][last] = node
@@ -58,7 +56,6 @@ def move_left(N, array):
     # 모든 노드 맨 끝으로 이동시키기
     for xi in range(N):
         last = 0
-        is_sum = False  # sum은 한번만
         for yi in range(N):
             node = array[xi][yi]
             # 노드가 없으면 배치
@@ -66,9 +63,8 @@ def move_left(N, array):
                 new_list[xi][last] = node
             # 노드가 있으면 비교하고 같으면 두배, 안 같으면 last -1
             else:
-                if (new_list[xi][last] == node) & (is_sum == False):
+                if new_list[xi][last] == node:
                     new_list[xi][last] = node * 2
-                    is_sum = True
                 else:
                     last += 1
                     new_list[xi][last] = node
@@ -81,9 +77,8 @@ def move_down(N, array):
     new_list = [[0] * N for _ in range(N)]
 
     # 모든 노드 맨 끝으로 이동시키기
-    last = N - 1
     for yi in range(N):
-        is_sum = False  # sum은 한번만
+        last = N - 1
         for xi in reversed(range(N)):
             node = array[xi][yi]
             # 노드가 없으면 배치
@@ -91,9 +86,8 @@ def move_down(N, array):
                 new_list[last][yi] = node
             # 노드가 있으면 비교하고 같으면 두배, 안 같으면 last -1
             else:
-                if (new_list[last][yi] == node) & (is_sum == False):
+                if new_list[last][yi] == node:
                     new_list[last][yi] = node * 2
-                    is_sum = True
                 else:
                     last -= 1
                     new_list[last][yi] = node
@@ -106,9 +100,8 @@ def move_up(N, array):
     new_list = [[0] * N for _ in range(N)]
 
     # 모든 노드 맨 끝으로 이동시키기
-    last = 0
     for yi in range(N):
-        is_sum = False  # sum은 한번만
+        last = 0
         for xi in range(N):
             node = array[xi][yi]
             # 노드가 없으면 배치
@@ -116,9 +109,8 @@ def move_up(N, array):
                 new_list[last][yi] = node
             # 노드가 있으면 비교하고 같으면 두배, 안 같으면 last -1
             else:
-                if (new_list[last][yi] == node) & (is_sum == False):
+                if new_list[last][yi] == node:
                     new_list[last][yi] = node * 2
-                    is_sum = True
                 else:
                     last += 1
                     new_list[last][yi] = node
@@ -161,37 +153,35 @@ if __name__ == '__main__':
     print()
 
     # 2. 최대값 찾기
-
     di = [0, 1, 2, 3]  # right, left, down, up
 
     cases = product(range(4),range(4),range(4),range(4),range(4))
     max_number_list = []
 
-    move_by_case([0,0,0,0])
-    move_by_case([2,2,2,2])
+    # move_by_case([2])
+    # move_by_case([3])
 
-    # for case in cases:
-    #     cmylist = mylist.copy()
-    #     print(case, "#" * 40)
-    #     for d in case:
-    #         if d == 0:
-    #             newlist = move_right(N, cmylist)
-    #             print("move right", newlist)
-    #             cmylist = newlist
-    #         elif d == 1:
-    #             newlist = move_left(N, cmylist)
-    #             print("move left", newlist)
-    #             cmylist = newlist
-    #         elif d == 2:
-    #             newlist = move_down(N, cmylist)
-    #             print("move down", newlist)
-    #             cmylist = newlist
-    #         elif d == 3:
-    #             newlist = move_up(N, cmylist)
-    #             print("move up", newlist)
-    #             cmylist = newlist
-    #
-    #     max_number_list.append(max_element(cmylist))
+    for case in cases:
+        cmylist = mylist.copy()
+        #print(case, "#" * 40)
+        for d in case:
+            if d == 0:
+                newlist = move_right(N, cmylist)
+                #print("move right", newlist)
+                cmylist = newlist
+            elif d == 1:
+                newlist = move_left(N, cmylist)
+                #print("move left", newlist)
+                cmylist = newlist
+            elif d == 2:
+                newlist = move_down(N, cmylist)
+                #print("move down", newlist)
+                cmylist = newlist
+            elif d == 3:
+                newlist = move_up(N, cmylist)
+                #print("move up", newlist)
+                cmylist = newlist
 
-    print(max_number_list)
+        max_number_list.append(max_element(cmylist))
+    #print(max_number_list)
     print(max(max_number_list))
