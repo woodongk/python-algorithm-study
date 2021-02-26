@@ -10,7 +10,7 @@ def fibo_recursive(n):
     if (n == 1) or (n == 2):
         return 1
     else:
-        return fibo_1(n - 1) + fibo_1(n - 2)
+        return fibo_recursive(n - 1) + fibo_recursive(n - 2)
 
 
 def fibo_memoization(n, memo):
@@ -26,9 +26,10 @@ def fibo_memoization(n, memo):
     if (n == 1) or (n == 2):
         return 1
     else:
-        result = fibo_2(n - 1, memo) + fibo_2(n - 2, memo)
+        result = fibo_memoization(n - 1, memo) + fibo_memoization(n - 2, memo)
     memo[n] = result
     return result
+
 
 def fibo_bottom_up(n):
     """
