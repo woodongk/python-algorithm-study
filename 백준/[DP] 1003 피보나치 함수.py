@@ -3,7 +3,7 @@
 '''
 
 
-def fibo_1(n):
+def fibo_recursive(n):
     """
     fibonacci recursive
     """
@@ -13,10 +13,14 @@ def fibo_1(n):
         return fibo_1(n - 1) + fibo_1(n - 2)
 
 
-def fibo_2(n, memo):
+def fibo_memoization(n, memo):
     """
     fibonacci memoization (top down)
     """
+
+    # memo list initialized with null
+    memo = [None] * (n + 1)
+
     if memo[n-1] is not None:
         return memo[n]
     if (n == 1) or (n == 2):
@@ -25,13 +29,6 @@ def fibo_2(n, memo):
         result = fibo_2(n - 1, memo) + fibo_2(n - 2, memo)
     memo[n] = result
     return result
-
-
-def fibo_memo(n):
-    # memo list initialized with null
-    memo = [None] * (n + 1)
-    return fibo_2(n, memo)
-
 
 def fibo_bottom_up(n):
     """
