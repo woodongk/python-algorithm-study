@@ -15,7 +15,7 @@ def fibo_1(n):
 
 def fibo_2(n, memo):
     """
-    fibonacci memoization
+    fibonacci memoization (top down)
     """
     if memo[n-1] is not None:
         return memo[n]

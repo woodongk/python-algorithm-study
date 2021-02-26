@@ -1,36 +1,26 @@
-def get_maximum_payment(N, time_list):
-    # 1. add pi / ti to list
-    time_list = [[ti, pi, pi/ti] for ti,pi in time_list]
-
-    # 2. sort in large pi / ti order
-    sorted_time_list = sorted(time_list, key=lambda x: x[2], reverse=True)
-    print(sorted_time_list)
-
-    # 3. get maximum
-    work_time = []
-    payment = 0
-    for i, t, p, tp_ratio in enumerate(sorted_time_list):
-        print("checkpoint", i, t, p, tp_ratio)
-        # when time is not over N
-        if (i + 1) + t <= N:
-
-
-
-
-
-
-    # compute maximum payment
-    payment = 0
-
 
 if __name__ == '__main__':
-    N = int(input())
+    # 1. initialization
+    n = int(input())
+    array = []
+    for _ in range(n):
+        array.append(tuple(map(int, input().split())))
 
-    time_table = []
+    t = [t for(t, p) in array]
+    p = [p for (t, p) in array]
 
-    for _ in range(N):
-        tp = list(map(int, input().split()))
-        time_table.append(tp)
+    max_value = 0
 
-    print(time_table)
-    print(get_maximum_payment(N, time_table))
+    # 2. dp solve
+    dp = [0] * (n + 1) # dp[i] = i 번째부터 마지막날까지의 최대값
+
+    for i in range(n - 1, - 1, -1):
+        if t[i] + i <= n: # 상담이 n일을 넘기지 않을 경우
+            with_i = p[i] + dp[t[i] + i]
+            dp[i] = max(with_i, max_value)
+            max_value = dp[i]
+            #print(with_i, max_value)
+        else:
+            dp[i] = max_value
+
+    print(max_value)
