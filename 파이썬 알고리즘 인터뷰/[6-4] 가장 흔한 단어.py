@@ -26,23 +26,15 @@ from typing import List
 
 def mostCommonWord(paragraph: str, banned: List[str]) -> str:
 
-    paragraph = re.sub('[^a-z0-9 ]'," ",paragraph.lower())
-    most_common_counter = collections.Counter(paragraph.lower().split())
+    words = re.sub(r'[^\w]', ' ', paragraph.lower()).split()
+    words = [word for word in words if word not in banned]
 
-    n = len(most_common_counter)
-    most_common_word_lists = [word for (word, count) in most_common_counter.most_common(n)]
+    counts = collections.Counter(words)
 
-    i = 0
-    while True:
-        word = most_common_word_lists[i]
-        if word not in banned:
-            return word
-        else:
-            most_common_counter.subtract(word)
-            i += 1
+    return counts.most_common(1)[0][0]
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     print(mostCommonWord("j. t? T. z! R, v, F' x! L; l! W. M; S. y? r! n; O. q; I? h; w. t; y; \
     X? y, p. k! k, h, J, r? w! U! V; j' u; R! z. s. T' k. P? M' I' j! y. P, T! e; X. w? M! Y, X; \
     G; d, X? S' F, K? V, r' v, v, D, w, K! S? Q! N. n. V. v. t? t' x! u. j; m; n! F, V' Y! h; c! V,\
@@ -54,4 +46,4 @@ if __name__=='__main__':
        Y' T? x? v? o! l; d; G' L. L, Z? q. w' r? U! E, H. C, Q! O? w! s? w' D. R, Y? u. w, N. Z? h. M? \
        o, B, g, Z! t! l, W? z, o? z, q! O? u, N; o' o? V; S! z; q! q. o, t! q! w! Z? Z? w, F? O' N' U' \
        p? r' J' L; S. M; g' V. i, P, v, v, f; W? L, y! i' z; L? w. v, s! P?",
-                         ["m","q","e","l","c","i","z","j","g","t","w","v","h","p","d","b","a","r","x","n"]))
+                         ["m", "q", "e", "l", "c", "i", "z", "j", "g", "t", "w", "v", "h", "p", "d", "b", "a", "r", "x", "n"]))
