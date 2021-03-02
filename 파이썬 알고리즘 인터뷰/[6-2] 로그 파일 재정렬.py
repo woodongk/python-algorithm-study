@@ -34,17 +34,15 @@ def reorderLogFiles(logs: List[str]) -> List[str]:
     digits = []
     letters = []
 
-    logs = [i.split() for i in logs]
     for log in logs:
         if log[1].isdigit():  # 숫자 여부 판별
             digits.append(log)
         else:
             letters.append(log)
 
-    letters.sort(key=lambda x: (x[1:], x[0]))
+    letters.sort(key=lambda x: (x.split()[1:], x.split()[0]))
 
     sorted_logs = letters + digits
-    sorted_logs = [" ".join(map(str, i)) for i in sorted_logs]
 
     return sorted_logs
 
