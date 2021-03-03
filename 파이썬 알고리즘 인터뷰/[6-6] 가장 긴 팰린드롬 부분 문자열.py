@@ -41,6 +41,10 @@ def longestPalindrome(s: str) -> str:
     l = len(s)
     max_len_sub_s = s[0]
 
+    # 예외 처리는 코드의 앞 부분에 먼저해서 뒷 계산 생략시킴
+    if len(s) < 2 or is_palindrome(s):
+        return s
+
     for i in range(l):
         for j in range(l, i, -1):
             sub_s = s[i:j]
@@ -51,6 +55,30 @@ def longestPalindrome(s: str) -> str:
                 pass
 
     return max_len_sub_s
+
+
+def twopointer_way_longestPalindrome(s: str) -> str:
+
+    # 예외 처리는 코드의 앞 부분에 먼저해서 뒷 계산 생략시킴
+    if len(s) < 2 or is_palindrome(s):
+        return s
+
+    # 팰린드롬 판별 및 투 포인터 확장
+    def expand(left, right):
+        while left >= 0 and right <= len(s) and s[left] == s[right - 1]:
+            left += 1
+            right -= 1
+        return s[left + 1: right - 1]
+
+    # 최대 팰린드롬 찾기
+    result = ''
+    for i in range(len(s) - 1):
+        result = max(result,
+                     expand(i, i + 1),  # 홀짝
+                     expand(i, i + 2),
+                     key=len
+                     )
+    return result
 
 
 if __name__ == '__main__':
