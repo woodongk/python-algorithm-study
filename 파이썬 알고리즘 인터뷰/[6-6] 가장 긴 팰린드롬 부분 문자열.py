@@ -65,12 +65,12 @@ def twopointer_way_longestPalindrome(s: str) -> str:
 
     # 팰린드롬 판별 및 투 포인터 확장
     def expand(left, right):
-        while left >= 0 and right <= len(s) and s[left] == s[right - 1]:
+        while left >= 0 and right < len(s) and s[left] == s[right - 1]:
             left += 1
             right -= 1
         return s[left + 1: right - 1]
 
-    # 최대 팰린드롬 찾기
+    # 최대 팰린드롬 찾
     result = ''
     for i in range(len(s) - 1):
         result = max(result,
@@ -83,3 +83,4 @@ def twopointer_way_longestPalindrome(s: str) -> str:
 
 if __name__ == '__main__':
     print(longestPalindrome("bb"))
+    print(twopointer_way_longestPalindrome("babad"))
