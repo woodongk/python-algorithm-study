@@ -27,7 +27,7 @@
 | 5 |  [그룹   애너그램](https://leetcode.com/problems/group-anagrams/)  |  ★★  | 6장.   문자열 조작  <br> collections.defaultdict(list) => 매번 키 존재 여부 체크 않고 딕셔너리에 넣는 법 | ✔ |
 | 6 |  [가장 긴 팰린드롬 부분   문자열](https://leetcode.com/problems/longest-palindromic-substring/)  |  ★★  | 6장.   문자열 조작 <br> max(string1, string2, key=len) => 최대 길이 string 반환하기  | ✔⏳❗️ |
 | 7 |  [두 수의   합](https://leetcode.com/problems/two-sum/)  |  ★  | 7장.   배열 | ✔ |
-| 8 |  [빗물   트래핑](https://leetcode.com/problems/trapping-rain-water/)  |  ★★★  | 7장.   배열 |  |
+| 8 |  [빗물   트래핑](https://leetcode.com/problems/trapping-rain-water/)  |  ★★★  | 7장.   배열 |  ✔⏳❗️ |
 | 9 |  [세 수의   합](https://leetcode.com/problems/3sum/)  |  ★★  | 7장.   배열 |   |
 | 10 |  [배열 파티션   I](https://leetcode.com/problems/array-partition-i/)  |  ★  | 7장.   배열 |   |
 | 11 |  [자신을 제외한 배열의   곱](https://leetcode.com/problems/product-of-array-except-self/)  |  ★★  | 7장.   배열 |   |
