@@ -37,7 +37,22 @@ def twoSum(nums: List[int], target: int) -> List[int]:
             pass
 
 
+# using dictionary
+def fast_twoSum(nums: List[int], target: int) -> List[int]:
+
+    # 딕셔너리로 조회
+    nums_map = {}
+    for i, num in enumerate(nums):
+        nums_map[num] = i
+
+    for i, num in enumerate(nums):
+        if target - num in nums_map and i != nums_map[target - num]:  # 딕셔너리에 값이 있고 중복 index 아니라면
+            return [i, nums_map[target-num]]
+
+
 if __name__ == '__main__':
-    nums = [3, 2, 4]
+    #nums = [3, 2, 4]
+    nums = [3, 1, 3]
     target = 6
     print(twoSum(nums, target))
+    print(fast_twoSum(nums, target))
