@@ -19,7 +19,7 @@
 
 ## 문제 풀이
 |  번호  |  제목  |  난이도  | 비고 | 💪 |
-|-|----|--|-------------|--|
+|-|----|--|-------------|---|
 | 1 |  [유효한   팰린드롬](https://leetcode.com/problems/valid-palindrome/)  |  ★  | 6장. 문자열 조작<br>     문자열은 슬라이싱이 가장 빠르다<br>     # 정규식 표현으로 영문자숫자 제외 지우기<br>     s = re.sub('[^a-z0-9]', '', s)  | ✔︎ |
 | 2 |  [문자열   뒤집기](https://leetcode.com/problems/reverse-string/)  |  ★  | 6장. 문자열 조작 | ✔︎ |
 | 3 |  [로그 파일   재정렬](https://leetcode.com/problems/reorder-data-in-log-files/)  |  ★  | 6장.   문자열 조작 <br>   list.sort(key=(괄호 내에 여러 조건 가능)) <br>    isdigit() # 숫자 여부 판별 | ✔⏳︎ |
