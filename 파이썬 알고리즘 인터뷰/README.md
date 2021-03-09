@@ -18,14 +18,33 @@
 ![마인드맵](https://user-images.githubusercontent.com/1250095/86745916-a62e9a00-c075-11ea-9aa5-8455e2527f87.png)
 
 ## 문제 풀이
-|  번호  |  제목  |  난이도  | 비고 | 💪 |
+
+210301 6장 문자열 조작 
+
+| 문제 번호 |  제목(URL)   | 난이도 |   체크 |   💪  	|
+|:-----:  |  :-------:	|:----:|:-----:| :----:	|
+| 1 | [유효한   팰린드롬](https://leetcode.com/problems/valid-palindrome/)  |★|   ✔  	|  	|
+| 2 |  [문자열   뒤집기](https://leetcode.com/problems/reverse-string/)  |  ★  | ✔︎ | |
+| 3 |  [로그 파일   재정렬](https://leetcode.com/problems/reorder-data-in-log-files/)  |  ★  | ✔︎⏳︎ | 필요 |
+| 4 |  [가장 흔한 단어](https://leetcode.com/problems/most-common-word/)  |  ★  | | ✔ | |
+| 5 |  [그룹   애너그램](https://leetcode.com/problems/group-anagrams/)  |  ★★  | | ✔ | |
+| 6 |  [가장 긴 팰린드롬 부분   문자열](https://leetcode.com/problems/longest-palindromic-substring/)  |  ★★  | ✔⏳|❗필요 |
+
+- 문자열은 슬라이싱이 가장 빠르다
+```python
+s = re.sub('[^a-z0-9]', '', s)  # 정규식 표현으로 영문자숫자 제외 지우기
+re.sub(r'[^\w]','',s)  # 단어 문자만 남기기
+```
+- list.sort(key=(괄호 내에 여러 조건 가능)) 
+- isdigit() # 숫자 여부 판별
+- collections.defaultdict(list) => 매번 키 존재 여부 체크 않고 딕셔너리에 넣는 법
+- max(string1, string2, key=len) => 최대 길이 string 반환하기
+
+
+
+
+|  번호  |  제목  |  난이도  | 체크 | 💪 |
 |-|----|--|-------------|---|
-| 1 |  [유효한   팰린드롬](https://leetcode.com/problems/valid-palindrome/)  |  ★  | 6장. 문자열 조작<br>     문자열은 슬라이싱이 가장 빠르다<br>     # 정규식 표현으로 영문자숫자 제외 지우기<br>     s = re.sub('[^a-z0-9]', '', s)  | ✔︎ |
-| 2 |  [문자열   뒤집기](https://leetcode.com/problems/reverse-string/)  |  ★  | 6장. 문자열 조작 | ✔︎ |
-| 3 |  [로그 파일   재정렬](https://leetcode.com/problems/reorder-data-in-log-files/)  |  ★  | 6장.   문자열 조작 <br>   list.sort(key=(괄호 내에 여러 조건 가능)) <br>    isdigit() # 숫자 여부 판별 | ✔⏳︎ |
-| 4 |  [가장 흔한   단어](https://leetcode.com/problems/most-common-word/)  |  ★  | 6장.   문자열 조작 <br>   re.sub(r'[^\w]','',s) # 단어 문자만 남기기 | ✔ |
-| 5 |  [그룹   애너그램](https://leetcode.com/problems/group-anagrams/)  |  ★★  | 6장.   문자열 조작  <br> collections.defaultdict(list) => 매번 키 존재 여부 체크 않고 딕셔너리에 넣는 법 | ✔ |
-| 6 |  [가장 긴 팰린드롬 부분   문자열](https://leetcode.com/problems/longest-palindromic-substring/)  |  ★★  | 6장.   문자열 조작 <br> max(string1, string2, key=len) => 최대 길이 string 반환하기  | ✔⏳❗️ |
 | 7 |  [두 수의   합](https://leetcode.com/problems/two-sum/)  |  ★  | 7장.   배열 | ✔ |
 | 8 |  [빗물   트래핑](https://leetcode.com/problems/trapping-rain-water/)  |  ★★★  | 7장.   배열 |  ✔⏳❗️ |
 | 9 |  [세 수의   합](https://leetcode.com/problems/3sum/)  |  ★★  | 7장.   배열 |   |
