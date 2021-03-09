@@ -25,23 +25,6 @@ n == height.length
 from typing import List
 
 
-def trap(height: List[int]) -> int:
-
-    if len(height) == 0:
-        return 0
-
-    rain_drop = 0
-    max_height = max(height)
-
-    for _ in range(max_height):
-        print(height, rain_drop)
-        rain_drop += count_rain(height)
-        # 한칸씩 올라가기
-        height = [i - 1 if i > 0 else 0 for i in height]
-
-    return rain_drop
-
-
 # 사이에 0 있으면 rain drop count update
 def count_rain(height_line):
     # 값 있으면 True, 없으면 False
@@ -65,5 +48,46 @@ def count_rain(height_line):
     return rain
 
 
+def trap(height: List[int]) -> int:
+
+    if len(height) == 0:
+        return 0
+
+    rain_drop = 0
+    max_height = max(height)
+
+    for _ in range(max_height):
+        print(height, rain_drop)
+        rain_drop += count_rain(height)
+        # 한칸씩 올라가기
+        height = [i - 1 if i > 0 else 0 for i in height]
+
+    return rain_drop
+
+
+def fast_trap(height: List[int]) -> int:
+
+    if not height:
+        return 0
+
+    volume = 0
+    left, right = 0, len(height) - 1
+    left_max, right_max = height[left], height[right]
+
+    while left < right:
+        print()
+        print(left,height[left],right, height[right])
+        left_max, right_max = max(left_max, height[left]), max(right_max, height[right])
+
+        if left_max <= right_max:
+            volume += left_max - height[left]
+            left += 1
+        else:
+            volume += right_max - height[right]
+            right -= 1
+
+    return volume
+
+
 if __name__ == '__main__':
-    print(trap([4,2,0,3,2,5]))
+    print(fast_trap([0, 1, 3, 2, 1, 0, 1, 3, 0, 2]))
