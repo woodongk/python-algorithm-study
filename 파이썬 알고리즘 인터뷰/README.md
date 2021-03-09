@@ -19,10 +19,10 @@
 
 ## 문제 풀이
 
-210301 6장 문자열 조작 
+210301-210304 **<6장 문자열 조작>**
 
 | 문제 번호 |  제목(URL)   | 난이도 |   체크 |   💪  	|
-|:-----:  |  :-------:	|:----:|:-----:| :----:	|
+|:-----:  |  :---------------:	|:----:|:-----:| :----:	|
 | 1 | [유효한   팰린드롬](https://leetcode.com/problems/valid-palindrome/)  |★|   ✔  	|  	|
 | 2 |  [문자열   뒤집기](https://leetcode.com/problems/reverse-string/)  |  ★  | ✔︎ | |
 | 3 |  [로그 파일   재정렬](https://leetcode.com/problems/reorder-data-in-log-files/)  |  ★  | ✔︎⏳︎ | 필요 |
@@ -40,13 +40,23 @@ re.sub(r'[^\w]','',s)  # 단어 문자만 남기기
 - collections.defaultdict(list) => 매번 키 존재 여부 체크 않고 딕셔너리에 넣는 법
 - max(string1, string2, key=len) => 최대 길이 string 반환하기
 
+210305-2103 **<7장 배열>**
+| 문제 번호 |  제목(URL)   | 난이도 |   체크 |   💪  	|
+|:-----:  |  :---------------:	|:----:|:-----:| :----:	|
+| 7 |  [두 수의   합](https://leetcode.com/problems/two-sum/)  |  ★  | ✔ | |
+| 8 |  [빗물   트래핑](https://leetcode.com/problems/trapping-rain-water/)  |  ★★★  | ✔⏳ |❗필요 |
 
+---
 
+## 안
+<details> 
+<summary>
+<details>
+<summary> 문제 풀이 리스트 </summary>
+<div markdown="1">
 
 |  번호  |  제목  |  난이도  | 체크 | 💪 |
 |-|----|--|-------------|---|
-| 7 |  [두 수의   합](https://leetcode.com/problems/two-sum/)  |  ★  | 7장.   배열 | ✔ |
-| 8 |  [빗물   트래핑](https://leetcode.com/problems/trapping-rain-water/)  |  ★★★  | 7장.   배열 |  ✔⏳❗️ |
 | 9 |  [세 수의   합](https://leetcode.com/problems/3sum/)  |  ★★  | 7장.   배열 |   |
 | 10 |  [배열 파티션   I](https://leetcode.com/problems/array-partition-i/)  |  ★  | 7장.   배열 |   |
 | 11 |  [자신을 제외한 배열의   곱](https://leetcode.com/problems/product-of-array-except-self/)  |  ★★  | 7장.   배열 |   |
@@ -134,6 +144,9 @@ re.sub(r'[^\w]','',s)  # 단어 문자만 남기기
 |  93(문제 5)  |  [뉴스   클러스터링](https://programmers.co.kr/learn/courses/30/lessons/17677)  |  ★★  | 부록   B. 카카오 공채 문제 풀이 |  |
 |  94(문제 6)  |  [프렌즈4블록](https://programmers.co.kr/learn/courses/30/lessons/17679)  |  ★★★  | 부록   B. 카카오 공채 문제 풀이 |   |
 |  95(문제 7)  |  [추석   트래픽](https://programmers.co.kr/learn/courses/30/lessons/17676)  |  ★★★  | 부록   B. 카카오 공채 문제 풀이 |  |
+
+</div>
+</details>
 
 
 ## 기타 코드
