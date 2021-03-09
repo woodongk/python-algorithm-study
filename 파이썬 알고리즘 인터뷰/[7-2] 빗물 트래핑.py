@@ -89,5 +89,33 @@ def fast_trap(height: List[int]) -> int:
     return volume
 
 
+def stack_trap(height: List[int]) -> int:
+    stack = []
+    volume = 0
+
+    for i in range(len(height)):
+        # 변곡점 만나는 경우 (현재 높이가 이전 높이보다 높을 때)
+        while stack and height[i] > height[stack[-1]]:
+            print("i = {}".format(i))
+            print(stack)
+            print(height[i], height[stack[-1]])
+            print()
+            # 스택에서 꺼냄
+            top = stack.pop()
+
+            if not len(stack):
+                break
+
+            # 이전과의 차이 만큼 볼륨 증가
+            distance = i - stack[-1] -1
+            waters = min(height[i], height[stack[-1]]) - height[top]
+
+            volume += distance * waters
+
+        stack.append(i)
+    return volume
+
+
 if __name__ == '__main__':
-    print(fast_trap([0, 1, 3, 2, 1, 0, 1, 3, 0, 2]))
+    print(stack_trap([0,1,0,2,1,0,1,3,2,1,2,1]))
+    print([0,1,2,3,4][-1])
