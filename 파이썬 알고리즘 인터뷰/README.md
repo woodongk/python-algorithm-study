@@ -48,9 +48,7 @@ re.sub(r'[^\w]','',s)  # 단어 문자만 남기기
 
 ---
 
-## 안
-<details> 
-<summary>
+## 풀어야 함 !
 <details>
 <summary> 문제 풀이 리스트 </summary>
 <div markdown="1">
