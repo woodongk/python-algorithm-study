@@ -72,6 +72,14 @@ def fast_trap(height: List[int]) -> int:
 
     volume = 0
     left, right = 0, len(height) - 1
+
+    # 0 이 아닌 최초의 값을 left에 할당
+    for i, h in enumerate(height):
+        if h != 0:
+            left = i
+            left_max = h
+            break
+    print(left_max, left)
     left_max, right_max = height[left], height[right]
 
     while left < right:
