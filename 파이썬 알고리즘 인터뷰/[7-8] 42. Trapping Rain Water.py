@@ -72,14 +72,6 @@ def fast_trap(height: List[int]) -> int:
 
     volume = 0
     left, right = 0, len(height) - 1
-
-    # 0 이 아닌 최초의 값을 left에 할당
-    for i, h in enumerate(height):
-        if h != 0:
-            left = i
-            left_max = h
-            break
-    print(left_max, left)
     left_max, right_max = height[left], height[right]
 
     while left < right:
@@ -97,6 +89,46 @@ def fast_trap(height: List[int]) -> int:
     return volume
 
 
+def fast_trap(height: List[int]) -> int:
+    """ #@새찬 """
+
+    # height 의 길이가 2 아래라면 바로 0을 반환
+    if len(height) <= 2:
+        return 0
+
+    # left_max 를 만날 때까지 선형 탐색하는 알고리즘
+    def solution(sub_height):
+
+        # 최초의 0 이상의 값을 left 에 할당
+        for i in range(len(sub_height)):
+            if sub_height[i] != 0:
+                left = i
+                break
+
+        sub_volume = 0
+
+        # 현재 값을 기준으로 선형 탐색
+        for i in range(left + 1, len(sub_height)):
+            print("현재 인덱스 : {}, 값 : {}".format(i, sub_height[i]))
+
+            # 현재보다 같거나 큰 값을 만나면 volume 갱신
+            if sub_height[i] >= sub_height[left]:
+                # sub_height 에서 현재 높이를 각각 빼기
+                sub_volume += sum([sub_height[left] - h for h in sub_height[left:i]])
+                left = i
+
+        return sub_volume
+
+    # 가장 큰 값을 기준으로 배열 분리, reverse
+    idx = height.index(max(height))
+    volume = 0
+
+    volume += solution(height[:idx+1])
+    volume += solution(height[idx:][::-1])
+
+    return volume
+
+
 def stack_trap(height: List[int]) -> int:
     stack = []
     volume = 0
@@ -104,9 +136,7 @@ def stack_trap(height: List[int]) -> int:
     for i in range(len(height)):
         # 변곡점 만나는 경우 (현재 높이가 이전 높이보다 높을 때)
         while stack and height[i] > height[stack[-1]]:
-            print("i = {}".format(i))
-            print(stack)
-            print(height[i], height[stack[-1]])
+            print("i = {}, height[i] = {}, stack = {}".format(i, height[i], stack))
             print()
             # 스택에서 꺼냄
             top = stack.pop()
@@ -126,4 +156,5 @@ def stack_trap(height: List[int]) -> int:
 
 if __name__ == '__main__':
     print(stack_trap([0,1,0,2,1,0,1,3,2,1,2,1]))
-    print([0,1,2,3,4][-1])
+    #print(stack_trap([0,1,0,2,1,0,1,3,2,1,2,1]))
+    #print([0,1,2,3,4][-1])
