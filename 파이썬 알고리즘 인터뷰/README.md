@@ -28,7 +28,7 @@
 | 3 |  [로그 파일   재정렬](https://leetcode.com/problems/reorder-data-in-log-files/)  |  ★  | ✔︎⏳︎ | 필요 |
 | 4 |  [가장 흔한 단어](https://leetcode.com/problems/most-common-word/)  |  ★  | | ✔ | |
 | 5 |  [그룹   애너그램](https://leetcode.com/problems/group-anagrams/)  |  ★★  | | ✔ | |
-| 6 |  [가장 긴 팰린드롬 부분   문자열](https://leetcode.com/problems/longest-palindromic-substring/)  |  ★★  | ✔︎⏳|❗필요 |
+| 6 |  [가장 긴 팰린드롬 부분   문자열](https://leetcode.com/problems/longest-palindromic-substring/)  |  ★★  | ✔︎⏳|❗다시 |
 
 - 문자열은 슬라이싱이 가장 빠르다
 ```python
@@ -44,14 +44,14 @@ re.sub(r'[^\w]','',s)  # 단어 문자만 남기기
 | 문제 번호 |  제목(URL)   | 난이도 |   체크 |   💪  	|
 |:-----:  |  :---------------:	|:----:|:-----:| :----:	|
 | 7 |  [두 수의   합](https://leetcode.com/problems/two-sum/)  |  ★  | ✔ | |
-| 8 |  [빗물   트래핑](https://leetcode.com/problems/trapping-rain-water/)  |  ★★★  | ✔︎⏳ |❗❗필요 |
+| 8 |  [빗물   트래핑](https://leetcode.com/problems/trapping-rain-water/)  |  ★★★  | ✔︎⏳ |❗❗다시 |
 
 
 210312- **7장부터 개념 훑기**
 | 문제 번호 |  제목(URL)   | 난이도 |   체크 |   💪  	|
 |:-----:  |  :---------------:	|:----:|:-----:| :----:	|
 | 8 |  [빗물   트래핑](https://leetcode.com/problems/trapping-rain-water/)  |  ★★★  | ✔︎⏳ |❗ 복습 `스택`|
-| 9 |  [세 수의   합](https://leetcode.com/problems/3sum/)  |  ★★  | ✔⏳ | ❗❗필요 `스택`|
+| 9 |  [세 수의   합](https://leetcode.com/problems/3sum/)  |  ★★  | ✔⏳ | ❗❗다시 `스택`|
 | 10 |  [배열 파티션   I](https://leetcode.com/problems/array-partition-i/)  |  ★  | ✔ |  |
 - `sorted(list)` : return list
 - `list.sort()` : return None
