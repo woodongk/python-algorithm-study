@@ -24,7 +24,6 @@ from typing import List
 
 # big oh n^2 => 시간 초과
 def greedy_threeSum(nums: List[int]) -> List[List[int]]:
-
     answer = []
 
     if len(nums) <= 2:
@@ -49,8 +48,8 @@ def greedy_threeSum(nums: List[int]) -> List[List[int]]:
     return answer
 
 
+# 방법은 떠올렸는데 구현을 못함
 def threeSum(nums: List[int]) -> List[List[int]]:
-
     # 길이가 2 이하면 성립 불가
     if len(nums) <= 2:
         return []
@@ -63,37 +62,44 @@ def threeSum(nums: List[int]) -> List[List[int]]:
     nums.sort()
     answer = []
 
-    # 양쪽 좌표 초기화
-    # left 는 최솟값을 가리키고 right 은 최댓값을 가리킨다.
-    print(nums)
-    for i in range(0, len(nums)):
+    for i in range(len(nums) - 1):
+        # 양쪽 좌표 초기화, left 는 최솟값을 가리키고 right 은 최댓값을 가리킨다.
+        # 매번 right 은 최대 좌표로 갱신
         left, right = i, len(nums) - 1
-        sum = nums[left] + nums[right]
-        print("와앙", nums[left], nums[right], sum)
-        while left < right or sum != 0:
-            print("지금 섬:{}".format(sum))
-            if sum < 0:
+
+        # 루프는 두개 이상일 수 밖에 없음. 명심
+        while left < right:
+            # 여기서 left, right 만 업데이트 진행
+            sums = nums[i] + nums[left] + nums[right]
+            print(left, right, nums[left], nums[right], sums)
+
+            # 세 수 합이 음수라면 양수를 찾아야 0이 될 가능성
+            if sums < 0:
+                print("두 수 합이 음수 ")
                 right -= 1
-                sum += nums[right]
-                if sum == 0:
-                    continue
-            elif sum > 0:
+
+            # 세 수 합이 양수라면 음수를 찾아야 0이 될 가능성
+            elif sums > 0:
+                print("두 수 합이 양수 ")
                 left += 1
-                sum += nums[left]
-                if sum == 0:
-                    continue
-            # sum 이 0인 경우 이므로 정답 처리
+            # 세 수의 합이 0이라면 강제 return
             else:
+                print("C", [nums[left], nums[i], nums[right]])
                 answer.append([nums[left], nums[i], nums[right]])
-                print([nums[left], nums[i], nums[right]])
 
-            #sum = nums[left] + nums[right]
-
-
+                # 정지 포인트는 갱신되는 left 이 right 보다 커질 때
+                while left < right:
+                    sums = nums[left] + nums[right] + nums[i]
+                    if sums == 0:  # 세 수의 합이 0 이라면
+                        print(nums[left], nums[i], nums[right])
+                        answer.append([nums[left], nums[i], nums[right]])
+                        break
+                    else:
+                        left += 1
+                        right -= 1
 
     return answer
 
 
-if __name__=='__main__':
-    print(threeSum([-1,0,1,2,-1,-4]))
-
+if __name__ == '__main__':
+    print(threeSum([-1, 0, 1, 2, -1, -4]))

@@ -51,7 +51,7 @@ re.sub(r'[^\w]','',s)  # 단어 문자만 남기기
 | 문제 번호 |  제목(URL)   | 난이도 |   체크 |   💪  	|
 |:-----:  |  :---------------:	|:----:|:-----:| :----:	|
 | 8 |  [빗물   트래핑](https://leetcode.com/problems/trapping-rain-water/)  |  ★★★  | ✔︎⏳ |❗ 복습 `스택`|
-| 9 |  [세 수의   합](https://leetcode.com/problems/3sum/)  |  ★★  | ✔⏳ | ❗❗다시 `스택`|
+| 9 |  [세 수의   합](https://leetcode.com/problems/3sum/)  |  ★★  | ✔⏳❌ | ❗❗다시 `스택`|
 | 10 |  [배열 파티션   I](https://leetcode.com/problems/array-partition-i/)  |  ★  | ✔ |  |
 - `sorted(list)` : return list
 - `list.sort()` : return None
