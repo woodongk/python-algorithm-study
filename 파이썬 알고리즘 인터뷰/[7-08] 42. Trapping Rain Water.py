@@ -156,5 +156,3 @@ def stack_trap(height: List[int]) -> int:
 
 if __name__ == '__main__':
     print(stack_trap([0,1,0,2,1,0,1,3,2,1,2,1]))
-    #print(stack_trap([0,1,0,2,1,0,1,3,2,1,2,1]))
-    #print([0,1,2,3,4][-1])
