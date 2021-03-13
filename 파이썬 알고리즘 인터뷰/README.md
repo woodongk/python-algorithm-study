@@ -35,16 +35,26 @@
 s = re.sub('[^a-z0-9]', '', s)  # 정규식 표현으로 영문자숫자 제외 지우기
 re.sub(r'[^\w]','',s)  # 단어 문자만 남기기
 ```
-- list.sort(key=(괄호 내에 여러 조건 가능)) 
-- isdigit() # 숫자 여부 판별
-- collections.defaultdict(list) => 매번 키 존재 여부 체크 않고 딕셔너리에 넣는 법
-- max(string1, string2, key=len) => 최대 길이 string 반환하기
+- `list.sort(key=(괄호 내에 여러 조건 가능))` 
+- `isdigit()` # 숫자 여부 판별
+- `collections.defaultdict(list)` => 매번 키 존재 여부 체크 않고 딕셔너리에 넣는 법
+- `max(string1, string2, key=len)` => 최대 길이 string 반환하기
 
-210305-2103 **<7장 배열>**
+210305-210308 **<7장 배열>**
 | 문제 번호 |  제목(URL)   | 난이도 |   체크 |   💪  	|
 |:-----:  |  :---------------:	|:----:|:-----:| :----:	|
 | 7 |  [두 수의   합](https://leetcode.com/problems/two-sum/)  |  ★  | ✔ | |
 | 8 |  [빗물   트래핑](https://leetcode.com/problems/trapping-rain-water/)  |  ★★★  | ✔︎⏳ |❗❗필요 |
+
+
+210312- **7장부터 개념 훑기**
+| 8 |  [빗물   트래핑](https://leetcode.com/problems/trapping-rain-water/)  |  ★★★  | ✔︎⏳ |다시 품❗ [스택]|
+| 9 |  [세 수의   합](https://leetcode.com/problems/3sum/)  |  ★★  | ✔⏳ | ❗❗필요 [스택] |
+| 10 |  [배열 파티션   I](https://leetcode.com/problems/array-partition-i/)  |  ★  | ✔ |  |
+- `sorted(list)` : return list
+- `list.sort()` : return None
+
+
 
 ---
 
@@ -55,8 +65,6 @@ re.sub(r'[^\w]','',s)  # 단어 문자만 남기기
 
 |  번호  |  제목  |  난이도  | 체크 | 💪 |
 |-|----|--|-------------|---|
-| 9 |  [세 수의   합](https://leetcode.com/problems/3sum/)  |  ★★  | 7장.   배열 |   |
-| 10 |  [배열 파티션   I](https://leetcode.com/problems/array-partition-i/)  |  ★  | 7장.   배열 |   |
 | 11 |  [자신을 제외한 배열의   곱](https://leetcode.com/problems/product-of-array-except-self/)  |  ★★  | 7장.   배열 |   |
 | 12 |  [주식을 사고팔기 가장 좋은   시점](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)  |  ★  | 7장.   배열 |   |
 | 13 |  [팰린드롬 연결   리스트](https://leetcode.com/problems/palindrome-linked-list/)  |  ★  | 8장.   연결 리스트 |   |
