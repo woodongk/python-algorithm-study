@@ -44,7 +44,7 @@ class Solution:
         for i in range(len(nums1)):
             check = False
             while j < len(nums2) and check == False:
-                # 1. 같다면, 하나 증가
+                # 같다면, 하나 증가
                 print(i, nums1[i], j, nums2[j])
                 if nums1[i] == nums2[j]:
                     intersect.append(nums1[i])
