@@ -43,7 +43,7 @@ re.sub(r'[^\w]','',s)  # 단어 문자만 남기기
 210305-210308 **<7장 배열>**
 | 문제 번호 |  제목(URL)   | 난이도 |   체크 |   💪  	|
 |:-----:  |  :---------------:	|:----:|:-----:| :----:	|
-| 7 |  [두 수의   합](https://leetcode.com/problems/two-sum/)  |  ★  | ✔ | |
+| 7 |  [두 수의   합](https://leetcode.com/problems/two-sum/)  |  ★  | ✔︎ | |
 | 8 |  [빗물   트래핑](https://leetcode.com/problems/trapping-rain-water/)  |  ★★★  | ✔︎⏳ |❗❗다시 |
 
 
@@ -51,10 +51,15 @@ re.sub(r'[^\w]','',s)  # 단어 문자만 남기기
 | 문제 번호 |  제목(URL)   | 난이도 |   체크 |   💪  	|
 |:-----:  |  :---------------:	|:----:|:-----:| :----:	|
 | 8 |  [빗물   트래핑](https://leetcode.com/problems/trapping-rain-water/)  |  ★★★  | ✔︎⏳ |❗ 복습 `스택`|
-| 9 |  [세 수의   합](https://leetcode.com/problems/3sum/)  |  ★★  | ✔⏳❌ | ❗❗다시 `스택`|
-| 10 |  [배열 파티션   I](https://leetcode.com/problems/array-partition-i/)  |  ★  | ✔ |  |
+| 9 |  [세 수의   합](https://leetcode.com/problems/3sum/)  |  ★★  | ✔︎⏳❌ | ❗❗다시 `스택`|
+| 10 |  [배열 파티션   I](https://leetcode.com/problems/array-partition-i/)  |  ★  | ✔︎ |  |
+| 13 |  [팰린드롬 연결   리스트](https://leetcode.com/problems/palindrome-linked-list/)  |  ★  | ✔︎ | ❗ `연결리스트 구현`  |
+| 20 |  [유효한   괄호](https://leetcode.com/problems/valid-parentheses/)  |  ★  | ✔︎ | 💪 |
+
 - `sorted(list)` : return list
 - `list.sort()` : return None
+- `not stack` : 스택이 비었는지 체크 
+
 
 
 ---
@@ -68,14 +73,12 @@ re.sub(r'[^\w]','',s)  # 단어 문자만 남기기
 |-|----|--|-------------|---|
 | 11 |  [자신을 제외한 배열의   곱](https://leetcode.com/problems/product-of-array-except-self/)  |  ★★  | 7장.   배열 |   |
 | 12 |  [주식을 사고팔기 가장 좋은   시점](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)  |  ★  | 7장.   배열 |   |
-| 13 |  [팰린드롬 연결   리스트](https://leetcode.com/problems/palindrome-linked-list/)  |  ★  | 8장.   연결 리스트 |   |
 | 14 |  [두 정렬 리스트의   병합](https://leetcode.com/problems/merge-two-sorted-lists/)  |  ★  | 8장.   연결 리스트 |   |
 | 15 |  [역순 연결   리스트](https://leetcode.com/problems/reverse-linked-list/)  |  ★  | 8장.   연결 리스트 |   |
 | 16 |  [두 수의   덧셈](https://leetcode.com/problems/add-two-numbers/)  |  ★★  | 8장.   연결 리스트 |   |
 | 17 |  [페어의 노드   스왑](https://leetcode.com/problems/swap-nodes-in-pairs/)  |  ★★  | 8장.   연결 리스트 |  |
 | 18 |  [홀짝 연결   리스트](https://leetcode.com/problems/odd-even-linked-list/)  |  ★★  | 8장.   연결 리스트 |  |
 | 19 |  [역순 연결 리스트   II](https://leetcode.com/problems/reverse-linked-list-ii/)  |  ★★  | 8장.   연결 리스트 |   |
-| 20 |  [유효한   괄호](https://leetcode.com/problems/valid-parentheses/)  |  ★  | 9장.   스택, 큐 |   |
 | 21 |  [중복 문자   제거](https://leetcode.com/problems/remove-duplicate-letters/)  |  ★★★  | 9장.   스택, 큐 |  |
 | 22 |  [일일   온도](https://leetcode.com/problems/daily-temperatures/)  |  ★★  | 9장.   스택, 큐 |   |
 | 23 |  [큐를 이용한 스택   구현](https://leetcode.com/problems/implement-stack-using-queues/)  |  ★  | 9장.   스택, 큐 |   |
