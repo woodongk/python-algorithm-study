@@ -8,7 +8,7 @@
 | [Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)|  `Easy`  |  ✔  | 💪  |
 | [Power of Three](https://leetcode.com/problems/power-of-three/)|  `Easy`  |  ✔  |  |
 | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|  `Easy`  |  ✔  | 💪 |
-| [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|  `Easy`  |  ✔  | 💪 |
+| [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|  `Easy`  |  ❗️  | 💪 |
 
 
 

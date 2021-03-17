@@ -107,8 +107,9 @@ if __name__ == '__main__':
     dp = [0] * (n + 1) # dp[i] = i 번째부터 마지막날까지의 최대값
 
     for i in range(n - 1, - 1, -1):
-        if t[i] + i <= n: # 상담이 n일을 넘기지 않을 경우
-            with_i = p[i] + dp[t[i] + i]
+        time = t[i] + i
+        if time <= n: # 상담이 n일을 넘기지 않을 경우
+            with_i = p[i] + dp[time]
             dp[i] = max(with_i, max_value)
             max_value = dp[i]
             #print(with_i, max_value)
