@@ -18,16 +18,20 @@ if __name__ == '__main__':
     # visited 여부 체크
     check_visited = [[False] * m for _ in range(n)]
 
+    #  ######### 현재 좌표 방문 처리 필요 ##########
+    check_visited[a][b] = True
+    ########################################
+
     # 왼쪽부터 순서대로 왼쪽으로 90도 도는 순서
     # di = [0, 3, 2, 1]
-    steps = [(-1, 0), (0, -1),(1, 0), (0, 1)]
+    steps = [(-1, 0), (0, -1), (1, 0), (0, 1)]
 
     di = [0, 3, 2, 1].index(d)
     check = 0  # escape loop 체크용
     while True:
 
         # step 리스트에서 왼쪽 이동 방향의 index
-        d_left = (di + 1) % 4 # 다음 direction 는 4의 나머지 + 1
+        d_left = (di + 1) % 4  # 다음 direction 는 4의 나머지 + 1
         print(a, b)
         na = a + steps[d_left][0]
         nb = b + steps[d_left][1]
@@ -69,14 +73,3 @@ if __name__ == '__main__':
         visited += len([i for i in line if i == True])
 
     print(visited)
-
-
-
-
-
-
-
-
-
-
-
