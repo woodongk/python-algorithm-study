@@ -9,10 +9,6 @@ if __name__ == '__main__':
     N = int(input())
     directions = list(map(str, input().split()))
 
-    # # 2. 행렬 만들기
-    # maps = [[(i, j) for j in range(1, N + 1)] for i in range(1, N + 1)]
-    # print(maps)
-
     di = {
          'D' : (1, 0), # L
          'U' : (-1, 0), # R
