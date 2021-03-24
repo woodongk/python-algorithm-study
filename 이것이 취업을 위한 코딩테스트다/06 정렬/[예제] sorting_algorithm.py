@@ -56,6 +56,20 @@ def quick_sort(array, start, end):
     quick_sort(array, right + 1, end)
 
 
+def simple_quick_sort(array):
+    if len(array) <= 1:
+        return array
+
+    pivot = array[0] # 첫번째 원소가 피봇
+    tail = array[1:] # 피봇을 제외한 리스트
+
+    left_side = [x for x in tail if x <= pivot] # 피봇 중심 왼쪽 부분
+    right_side = [x for x in tail if x > pivot] # 피봇 중심 오른쪽 부분
+
+    # 분할 이후 왼쪽과 오른쪽에서 각각 정렬 수행, 전체 리스트 반환
+    return simple_quick_sort(left_side) + [pivot] + simple_quick_sort(right_side)
+
+
 if __name__ == '__main__':
     array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
     print("선택 정렬 결과 :")
@@ -69,7 +83,6 @@ if __name__ == '__main__':
     print("퀵 정렬 결과 :")
     quick_sort(array, 0, len(array) - 1)
     print(array)
-
-    array = [5, 7, 9, 0, 3, 1, 6, 2, 4, 8]
-    quick_sort(array, 0, len(array) - 1)
-    print(array)
+    print()
+    print("간단한 퀵 정렬 결과 : ")
+    print(simple_quick_sort(array))
