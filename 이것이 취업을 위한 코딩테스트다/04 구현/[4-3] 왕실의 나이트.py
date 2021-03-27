@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
     # 루프 없이 더한 값으로 바로 이동할 수 있다.
     move_plans = [(xx + yx, xy + yy) for (xx, xy), (yx, yy) in move_plans]
-    move_plans = list(set(move_plans)) # 중복 제거
+    move_plans = list(set(move_plans))  # 중복 제거
 
     cnt = 0
 
