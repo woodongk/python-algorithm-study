@@ -1,5 +1,4 @@
-def equation(w, h, x, y):
-    return w * y + h * x - w * h
+from math import gcd
 
 
 def solution(w, h):
@@ -11,13 +10,13 @@ def solution(w, h):
     if w == h:
         return w * h - w
 
-    # 포문 두번..?
-    cnt = w * h
-    for i in range(0, h + 1):
-        for j in range(w + 1):
-            print(j, i)
-            if equation(w, h, j, i) * equation(w, h, j + 1, i + 1) < 0:
-                cnt -= 1
+    g = gcd(w, h)
+    #print(g)
+
+    small_w = int(w / g)
+    smalL_h = int(h / g)
+    deleted = small_w + smalL_h - 1
+    cnt = w * h - deleted * g
 
     return cnt
 
