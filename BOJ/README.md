@@ -28,4 +28,5 @@
 | 2747  | 피보나치	| https://www.acmicpc.net/problem/2747	|   ✔   	|  	|
 | 10828  | 스택 구현   | https://www.acmicpc.net/problem/10828 	|   ✔   	| 	|
 | 1018  | 체스판 다시 칠하기 	| https://www.acmicpc.net/problem/1018	|   ✔   | 💪|
+| 3190   | 뱀    | https://www.acmicpc.net/problem/3190	|   ✔ ⏳  	| 💪💪💪 삼성 sw 기출|
 | 2644  | 촌수계산   | https://www.acmicpc.net/problem/2644 	|   ✔   	| 	|
