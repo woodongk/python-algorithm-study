@@ -31,6 +31,7 @@ no yes yes
 """
 
 
+# 이진 탐색
 def search_item(array, target, start, end):
     while start <= end:
 
@@ -46,6 +47,8 @@ def search_item(array, target, start, end):
     return None
 
 
+
+
 if __name__ == '__main__':
     n = int(input())
     items = list(map(int, input().split()))
@@ -54,6 +57,8 @@ if __name__ == '__main__':
     m = int(input())
     target_array = list(map(int, input().split()))
 
+    # 이진 탐색
+    print("Binary Search way")
     for target in target_array:
         target_index = search_item(items, target, 0, n - 1)
 
@@ -61,3 +66,16 @@ if __name__ == '__main__':
             print("no", end=' ')
         else:
             print("yes", end=' ')
+    print()
+    print()
+    # 계수 정렬
+    print("Count Sort way")
+    array = [0] * 1000001
+
+    for i in range(len(items)):
+        array[items[i]] = 1
+    for target in target_array:
+        if array[target] == 1:
+            print("yes", end=' ')
+        else:
+            print("no", end=' ')
