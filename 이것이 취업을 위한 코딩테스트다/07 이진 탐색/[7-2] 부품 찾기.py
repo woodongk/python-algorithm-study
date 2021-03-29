@@ -47,8 +47,6 @@ def search_item(array, target, start, end):
     return None
 
 
-
-
 if __name__ == '__main__':
     n = int(input())
     items = list(map(int, input().split()))
