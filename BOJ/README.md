@@ -30,3 +30,5 @@
 | 1018  | 체스판 다시 칠하기 	| https://www.acmicpc.net/problem/1018	|   ✔   | 💪|
 | 3190   | 뱀    | https://www.acmicpc.net/problem/3190	|   ✔ ⏳  	| 💪💪💪 삼성 sw 기출|
 | 2644  | 촌수계산   | https://www.acmicpc.net/problem/2644 	|   ✔   	| 	|
+| 1463   | 1로 만들기    | https://www.acmicpc.net/problem/1463 	|   ✔ ⏳  	| 예외처리 |
+| 11279  | 최대 힙   | https://www.acmicpc.net/problem/11279  	|   ✔   	| `힙`	|
