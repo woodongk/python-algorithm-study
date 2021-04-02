@@ -33,6 +33,7 @@ def solution(n):
     if (n == 2) | (n == 3):
         return 1
 
+    # index n 까지 최소 거리
     dp = [0] * (n + 1)
     dp[1] = 0
     dp[2] = 1
@@ -49,7 +50,7 @@ def solution(n):
         # 가장 최소값을 기대하는 곳
         if i % 3 == 0:
             dp[i] = min(dp[i], dp[int(i / 3)] + 1)
-
+    print(dp)
     return dp[n]
 
 
