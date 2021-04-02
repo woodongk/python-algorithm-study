@@ -32,5 +32,8 @@
 | 2644  | 촌수계산   | https://www.acmicpc.net/problem/2644 	|   ✔   	| 	|
 | 1463   | 1로 만들기    | https://www.acmicpc.net/problem/1463 	|   ✔ ⏳  	| 예외처리 |
 | 11279  | 최대 힙   | https://www.acmicpc.net/problem/11279  	|   ✔   	| `힙`	|
+| 1920  | 수 찾기   | https://www.acmicpc.net/problem/1920  	|    ✔⏳  |  	|
+| 4153  | 직각 삼각형    | https://www.acmicpc.net/problem/4153   	|   ✔   	| `힙`	|
+| 1697  |  숨바꼭질    | https://www.acmicpc.net/problem/1697   	|   	| 💪💪💪`다시``다시`	|
 
 
