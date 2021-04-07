@@ -35,5 +35,7 @@
 | 1920  | 수 찾기   | https://www.acmicpc.net/problem/1920  	|    ✔⏳  |  	|
 | 4153  | 직각 삼각형    | https://www.acmicpc.net/problem/4153   	|   ✔   	| `힙`	|
 | 1697  |  숨바꼭질    | https://www.acmicpc.net/problem/1697   	|   	| 💪💪💪`다시``다시`	|
+| 3085  |  사탕 게임    | https://www.acmicpc.net/problem/3085   	|   ✔ ⏳  	| 빡세다. 좋은 문제로 안 보임 |
+
 
 
