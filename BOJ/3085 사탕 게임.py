@@ -29,24 +29,26 @@ CPPZZ
 
 
 # di = 0 오른쪽 보기 di = 1 아래쪽 보기
-def dfs(di, array, node, visited, cnt):
+def dfs(check_steps, array, node, visited):
+    global cnt
+
     x, y = node
     visited[x][y] = True
 
-    # 오른쪽 쫙 훑고, 왼쪽 쫙 훑기
-    nx = x + dx[di]
-    ny = y + dy[di]
+    for step in check_steps:
+        nx = x + step[0]
+        ny = y + step[1]
 
-    # 테두리 밖 안나가고 방문 하기 전 일 때
-    if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
-        # 색깔이 같은 값일 경우! 방문
-        if array[x][y] == array[nx][ny]:
-            cnt += 1
-            dfs(di, array, (nx, ny), visited, cnt)
-    return cnt
+        # 테두리 밖 안나가고 방문 하기 전 일 때
+        if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
+            # 색깔이 같은 값일 경우! 방문
+            if array[x][y] == array[nx][ny]:
+                cnt += 1
+                dfs(check_steps, array, (nx, ny), visited)
 
 
 if __name__ == '__main__':
+
     n = int(input())
 
     maps = []
@@ -57,11 +59,50 @@ if __name__ == '__main__':
     visited = [([False] * n) for _ in range(n)]
 
     # 일직선만 이동 가능
-    # 왼쪽 꼭대기서부터 내려오니까 다른 방향은 고려할 필요 없어보임!
-    # 오른쪽하고 아래쪽만 고려한다.
-    dx = [0, 1]
-    dy = [1, 0]
+    # 오른쪽하고 아래 방향만 고려
+    check_rows = [(1, 0), (-1, 0)]
+    check_cols = [(0, 1), (0, -1)]
     cnt = 1
 
-    print(dfs(0, maps, (2, 2), visited, cnt))
-    print(cnt)
+    cnt_lst = []
+
+    for i in range(n):
+        for j in range(n):
+            # 오른쪽 노드랑 다르면 위치 바꾸기
+            if (0 <= j + 1 < n) and (maps[i][j] != maps[i][j + 1]):
+                maps[i][j], maps[i][j + 1] = maps[i][j + 1], maps[i][j]
+
+                for check_steps in [check_cols, check_rows]:
+                    cnt = 1
+                    visited = [([False] * n) for _ in range(n)]
+                    dfs(check_steps, maps, (i, j), visited)
+                    cnt_lst.append(cnt)
+
+                    cnt = 1
+                    visited = [([False] * n) for _ in range(n)]
+                    dfs(check_steps, maps, (i, j + 1), visited)
+                    cnt_lst.append(cnt)
+
+                # 원상 복귀
+                maps[i][j], maps[i][j + 1] = maps[i][j + 1], maps[i][j]
+
+            # 아래 노드랑 다르면 위치 바꾸기
+            if (0 <= i + 1 < n) and (maps[i][j] != maps[i + 1][j]):
+                maps[i][j], maps[i + 1][j] = maps[i + 1][j], maps[i][j]
+
+                for check_steps in [check_cols, check_rows]:
+                    cnt = 1
+                    visited = [([False] * n) for _ in range(n)]
+                    dfs(check_steps, maps, (i, j), visited)
+                    cnt_lst.append(cnt)
+
+                    cnt = 1
+                    visited = [([False] * n) for _ in range(n)]
+                    dfs(check_steps, maps, (i + 1, j), visited)
+                    cnt_lst.append(cnt)
+
+                # 원상 복귀
+                maps[i][j], maps[i + 1][j] = maps[i + 1][j], maps[i][j]
+
+    print(max(cnt_lst))
+
