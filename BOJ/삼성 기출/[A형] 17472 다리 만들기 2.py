@@ -100,6 +100,13 @@ A의 길이는 4이고, B의 길이도 4이다.
 1 1 1 0 1 1 1
 1 1 1 0 1 1 1
 -1
+
+4 9
+0 0 1 1 1 0 0 1 0
+1 0 0 1 0 0 0 1 0
+0 0 1 0 0 1 0 1 0
+1 0 0 0 0 0 0 1 0
+-1
 """
 import collections
 import copy
@@ -196,39 +203,49 @@ if __name__ == '__main__':
             else:
                 min_dist_bridges.append((i, j, INF))
 
-    min_dist_bridges = sorted(min_dist_bridges, key=lambda x: x[2], reverse=True)
+    min_dist_bridges = sorted(min_dist_bridges, key=lambda x: x[2])
     print(min_dist_bridges)
 
     # 각각의 섬마다 최소거리 구한 뒤로는 가장 작은 최소거리부터 탐색
     # 최소 거리가 있는 섬부터 연결한 뒤.. 링크드 리스트 탐색 방식으로 노드 탐색, 모든 노드 방문시 out
-    graph = [[] for _ in range(len(islands))]
+    # ! 방법은 맞았는데 MST 방법이라고 따로 존재하는 방법을 사용하자. union 사용하기
 
-    def dfs(graph, v, visited):
-        visited[v] = True
+    # union 위해서 parent 리스트 만들어주기
+    parent = [0] * len(islands)
+    for i in range(len(islands)):
+        parent[i] = i
 
-        for i in graph[v]:
-            if not visited[i]:
-                dfs(graph, i, visited)
+    def find_parent(parent, x):
+        if parent[x] != x: # 루트 노드 아닐 경우 재귀 탐색 
+            parent[x] = find_parent(parent, parent[x])
+        return parent[x]
+
+    def union_parent(parent, x, y):
+        x = find_parent(parent, x)
+        y = find_parent(parent, y)
+        if x > y:
+            parent[x] = y
+        else:
+            parent[y] = x
 
     distances_sum = 0
 
-    while min_dist_bridges:
-        i, j, dist = min_dist_bridges.pop()
+    for edge in min_dist_bridges:
+        i, j, dist = edge
+        # dist 제약 사항
         if dist < INF:
-            graph[i].append(j) # i 와 j 연결해주기
-            graph[j].append(i)
-            distances_sum += dist
+            # 사이클이 발생하지 않을 경우에만 집합에 포함하기
+            if find_parent(parent, i) != find_parent(parent, j):
+                union_parent(parent, i, j)
+                distances_sum += dist
 
-        visited = [False] * len(islands)
-        dfs(graph, i, visited)
-
-        if len([i for i in visited if i == True]) == len(islands):
-            break
-
+    # 연결 불가
     if distances_sum == 0:
         print(-1)
-    else:
+    elif len(set([find_parent(parent, i) for i in parent])) == 1:
         print(distances_sum)
+    else:
+        print(-1)
 
 
 

@@ -41,7 +41,7 @@ if __name__ == '__main__':
     for node in nodes:
         if find_parent(parent, node) == node:
             check = True
-            breaks2
+            break
 
     if check:
         print("is cycle")
