@@ -148,9 +148,9 @@ if __name__ == '__main__':
         for j in range(m):
             if maps[i][j] == 1 and not visited[i][j]:
                 islands.append(bfs(maps, (i, j), visited))
-
-    print(islands)
-    print(len(islands))
+    #
+    # print(islands)
+    # print(len(islands))
 
     # 각 섬마다의 최소 거리 구하는 코드
     # 주의) 1. 2칸 이상, 2. 일직선
@@ -165,13 +165,32 @@ if __name__ == '__main__':
             for ax, ay in a:
                 for bx, by in b:
                     if ax == bx:  # 가로
-                        if abs(ay - by) >= 2:  # 2칸 제약 사항
-                            dist.append(abs(ay - by))
+                        k = abs(ay - by) - 1
+                        if k >= 2: # 2칸 제약 사항
+                            check = True
+                            for ki in range(1, k+1):
+                                if maps[ax][min(ay, by) + ki] == 0: # 0일 경우에만 칸 확보가 가능함
+                                    check = True
+                                    continue
+                                else:
+                                    check = False
+                                    break
+                            if check:
+                                dist.append(k)
 
                     if ay == by:  # 세로
-                        if abs(ax - bx) >= 2:  # 2칸 제약 사항
-                            dist.append(abs(ax - bx))
-            print("썸!", i, j, dist)
+                        k = abs(ax - bx) - 1
+                        if k >= 2: # 2칸 제약 사항
+                            check = True
+                            for ki in range(1, k+1):
+                                if maps[min(ax, bx) + ki][ay] == 0: # 0일 경우에만 칸 확보가 가능함
+                                    check = True
+                                    continue
+                                else:
+                                    check = False
+                                    break
+                            if check:
+                                dist.append(k)
             if dist:
                 min_dist_bridges.append((i, j, min(dist)))  # 섬I, 섬J, 최소거리
             else:
@@ -180,20 +199,39 @@ if __name__ == '__main__':
     min_dist_bridges = sorted(min_dist_bridges, key=lambda x: x[2], reverse=True)
     print(min_dist_bridges)
 
-    # 각각의 섬마다 최소거리 노드 구한 뒤로는 visited 리스트 만들어서 노드 채우기
-    #### 1!!! 어케하지
-    visited = [False] * len(islands)
-    sum_dist = 0
+    # 각각의 섬마다 최소거리 구한 뒤로는 가장 작은 최소거리부터 탐색
+    # 최소 거리가 있는 섬부터 연결한 뒤.. 링크드 리스트 탐색 방식으로 노드 탐색, 모든 노드 방문시 out
+    graph = [[] for _ in range(len(islands))]
+
+    def dfs(graph, v, visited):
+        visited[v] = True
+
+        for i in graph[v]:
+            if not visited[i]:
+                dfs(graph, i, visited)
+
+    distances_sum = 0
+
     while min_dist_bridges:
         i, j, dist = min_dist_bridges.pop()
-        print(i,j, dist)
-        if dist < INF and not visited[i] and not visited[j]:
-            visited[i] = True
-            visited[j] = True
-            sum_dist += dist
+        if dist < INF:
+            graph[i].append(j) # i 와 j 연결해주기
+            graph[j].append(i)
+            distances_sum += dist
 
-        # visited 다 채워지면 break
-        if [i for i in visited if i == False] is None:
+        visited = [False] * len(islands)
+        dfs(graph, i, visited)
+
+        if len([i for i in visited if i == True]) == len(islands):
             break
 
-    print(sum_dist)
+    if distances_sum == 0:
+        print(-1)
+    else:
+        print(distances_sum)
+
+
+
+
+
+
