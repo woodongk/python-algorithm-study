@@ -26,8 +26,8 @@
 | 문제 번호 	|       제목      	|                  URL                  	| 체크 	|   💪  	|
 |---------	|---------------	|-------------------------------------	|:----:	|:----:	|
 | 2747  | 피보나치	| https://www.acmicpc.net/problem/2747	|   ✔   	|  	|
-| 10828  | 스택 구현   | https://www.acmicpc.net/problem/10828 	|   ✔   	| 	|
-| 1018  | 체스판 다시 칠하기 	| https://www.acmicpc.net/problem/1018	|   ✔   | 💪|
+| 10828  | 스택 구현   | https://www.acmicpc.net/problem/10828 	|   ✔ 	| 	|
+| 1018  | 체스판 다시 칠하기 	| https://www.acmicpc.net/problem/1018	|   ✔✔   | 💪|
 | 3190   | 뱀    | https://www.acmicpc.net/problem/3190	|   ✔ ⏳  	| 💪💪💪 삼성 sw 기출|
 | 2644  | 촌수계산   | https://www.acmicpc.net/problem/2644 	|   ✔   	| 	|
 | 1463   | 1로 만들기    | https://www.acmicpc.net/problem/1463 	|   ✔ ⏳  	| 예외처리 |
@@ -37,7 +37,8 @@
 | 1697  |  숨바꼭질    | https://www.acmicpc.net/problem/1697   	|   	| 💪💪💪`다시``다시`	|
 | 3085  |  사탕 게임    | https://www.acmicpc.net/problem/3085   	|   ✔ ⏳  	| 빡세다. 좋은 문제로 안 보임 |
 | 13460  |  구슬 탈출 2    | https://www.acmicpc.net/problem/13460  	|   ❌ ⏳  	| 어렵다  |    
-| 17472  |  다리 만들기 2    | https://www.acmicpc.net/problem/13460  	|   ✔ ⏳   	| 드디어 맞았다!! 감격 |       
+| 17472  |  다리 만들기 2    | https://www.acmicpc.net/problem/13460  	|   ✔ ⏳   	| 드디어 맞았다!! 감격 |   
+| 17144  |  미세먼지 안녕!   | https://www.acmicpc.net/problem/17144  	|   ❌ ⏳ ✔   	| 토할것같아  |       
 
 
 

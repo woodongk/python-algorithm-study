@@ -111,76 +111,74 @@ import copy
 def spread():
     for i in range(r):
         for j in range(c):
-            if maps[i][j] > 0:
-                dirt = maps[i][j]
-                part_of_dirt = dirt // 5
-                cnt = 0
+            if maps[i][j] >= 5:
+                dirt = maps[i][j] // 5
 
                 for k in range(4):
                     nx = i + dx[k]
                     ny = j + dy[k]
 
                     if 0 <= nx < r and 0 <= ny < c:  # 범위 벗어나지 않으면
-                        if tmp[nx][ny] >= 0:  # 공기 청정기 없으면
-                            tmp[nx][ny] += part_of_dirt
-                            cnt += 1  # 확산된 만큼 더해준다
-                            tmp[i][j] -= part_of_dirt
+                        if tmp[nx][ny] != -1:  # 공기 청정기 없으면
+                            tmp[nx][ny] += dirt
+                            tmp[i][j] -= dirt
 
 
 def clean():
-    for pos in range(len(cleaners)):  # 위, 아래 순서임
-        if pos == 0:  # 위 이동
+    # up
+    x, y = cleaners[0]
 
-            x, y = cleaners[0]
-            nx, ny = x, y
+    # 오른쪽 방향
+    v1 = tmp[x][c - 1] # keep value for 다음 방향
+    for i in range(c - 2, 0, -1):
+        tmp[x][i + 1] = tmp[x][i]
 
-            # 모든 값 리스트에 넣어버리기
-            up_values = [0]
-            k = 0
-            for i in range(4):
-                nx = nx + up[i][0]
-                ny = ny + up[i][1]
-                while True:
-                    if (0 <= nx < r) and (0 <= ny < c):
-                        up_values.append(tmp[nx][ny])
-                        tmp2[nx][ny] = up_values[k] # 한칸씩 밀리게 넣기
-                        k += 1
-                        if tmp[nx][ny] != -1:
-                            nx += up[i][0]
-                            ny += up[i][1]
-                    else:
-                        nx -= up[i][0]
-                        ny -= up[i][1]
-                        if tmp[nx][ny] == -1:
-                            tmp2[nx][ny] = 0
-                        break
-            print(up_values)
-        else: # 아래
+    # 위쪽 방향
+    v2 = tmp[0][c - 1]
+    for i in range(x - 1):
+        tmp[i][c - 1] = tmp[i + 1][c - 1]
+    tmp[x - 1][c - 1] = v1
 
-            x, y = cleaners[1]
-            nx, ny = x, y
+    # 왼쪽 방향
+    v3 = tmp[0][0]
+    for i in range(c - 1):
+        tmp[0][i] = tmp[0][i + 1]
+    tmp[0][c - 2] = v2
 
-            # 모든 값 리스트에 넣어버리기
-            down_values = [0]
-            k = 0
-            for i in range(4):
-                nx = nx + down[i][0]
-                ny = ny + down[i][1]
-                while True:
-                    if (0 <= nx < r) and (0 <= ny < c) and tmp[nx][ny] != -1:
-                        down_values.append(tmp[nx][ny])
-                        tmp2[nx][ny] = down_values[k]
-                        k += 1
-                        nx += down[i][0]
-                        ny += down[i][1]
-                    else:
-                        nx -= down[i][0]
-                        ny -= down[i][1]
-                        if tmp[nx][ny] == -1:
-                            tmp2[nx][ny] = 0
-                        break
-            print(down_values)
+    # 아래 방향
+    for i in range(x - 1, 1, -1):
+        tmp[i][0] = tmp[i - 1][0]
+    tmp[x][1] = 0  # 미세먼지 후륵
+    tmp[1][0] = v3
 
+    # down
+    x, y = cleaners[1]
+
+    # 오른쪽 방향
+    v1 = tmp[x][c - 1]
+    for i in range(c - 2, 0, -1):
+        tmp[x][i + 1] = tmp[x][i]
+
+    # 아래 방향
+    v2 = tmp[r - 1][c - 1]
+    for i in range(r - 1, x, -1):
+        tmp[i][c - 1] = tmp[i - 1][c - 1]
+    tmp[x + 1][c - 1] = v1
+
+    # 왼쪽 방향
+    v3 = tmp[r - 1][0]
+    for i in range(c - 1):
+        tmp[r - 1][i] = tmp[r - 1][i + 1]
+    tmp[r - 1][c - 2] = v2
+
+    # 위쪽 방향
+    for i in range(x + 1, r - 1):
+        tmp[i][0] = tmp[i + 1][0]
+    tmp[x][1] = 0
+    tmp[r - 2][0] = v3
+
+import sys
+input = sys.stdin.readline
 
 if __name__ == '__main__':
     # 입력값 받기
@@ -194,38 +192,25 @@ if __name__ == '__main__':
     dx = [0, 0, 1, -1]
     dy = [1, -1, 0, 0]
 
-    up = [(1, 0), (0, 1), (-1, 0), (0, -1)]
-    down = [(1, 0), (0, -1), (-1, 0), (0, 1)]
-
     # 공기 청정기 위치 찾기
     cleaners = []
     for i in range(r): # 공기청정기는 1열에만 존재한다
         if maps[i][0] == -1:
             cleaners.append((i, 0)) # 앞에꺼가 위, 뒤에꺼가 아래
 
-    tmp = copy.deepcopy(maps)
-    spread()  # 미세먼지 확산 함수
-    tmp2 = copy.deepcopy(tmp)
-    print(tmp)
-    clean()  # 미세먼지 제거 함
-    print(tmp2)
+    # t초 만큼 돌리기
+    for _ in range(t):
+        # 딥카피해서 루프마다 원본 손상 없게 하기
+        tmp = copy.deepcopy(maps)
+        spread()  # 미세먼지 확산 함수
+        clean() # 미세먼지 제거 함
+        maps = copy.deepcopy(tmp)
 
-    # # t초 만큼 돌리기
-    # for i in range(t):
-    #     # 딥카피해서 루프마다 원본 손상 없게 하기
-    #     tmp = copy.deepcopy(maps)
-    #     spread()  # 미세먼지 확산 함수
-    #     tmp2 = copy.deepcopy(tmp)
-    #     clean() # 미세먼지 제거 함
-    #     maps = tmp2
+    s = 0
+    for dirt in maps:
+        s += sum(dirt)
 
-    dirts = 0
-    for i in range(r):
-        for j in range(c):
-            if maps[i][j] > 0:
-                dirts += tmp2[i][j]
-
-    print(dirts)
+    print(s + 2)
 
 
 
