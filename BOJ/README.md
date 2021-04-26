@@ -37,8 +37,13 @@
 | 1697  |  숨바꼭질    | https://www.acmicpc.net/problem/1697   	|   	| 💪💪💪`다시``다시`	|
 | 3085  |  사탕 게임    | https://www.acmicpc.net/problem/3085   	|   ✔ ⏳  	| 빡세다. 좋은 문제로 안 보임 |
 | 13460  |  구슬 탈출 2    | https://www.acmicpc.net/problem/13460  	|   ❌ ⏳  	| 어렵다  |    
-| 17472  |  다리 만들기 2    | https://www.acmicpc.net/problem/13460  	|   ✔ ⏳   	| 드디어 맞았다!! 감격 |   
-| 17144  |  미세먼지 안녕!   | https://www.acmicpc.net/problem/17144  	|   ❌ ⏳ ✔   	| 토할것같아  |       
+| 17472  |  다리 만들기 2    | https://www.acmicpc.net/problem/17422  	|   ✔ ⏳   	| 드디어 맞았다!! 감격 |   
+| 17144  |  미세먼지 안녕!   | https://www.acmicpc.net/problem/17144  	|   ❌ ⏳ ✔   	| 토할것같아  |  
+| 16236  |  아기상어   | https://www.acmicpc.net/problem/16236  	|   ⏳ ✔   	| 로직은 맞았는데 구현 템플릿 외우기 |
+
+- 최단 거리 문제는 주로 `bfs`
+- bfs 함수 내에서는 추가 기능을 최대한 넣지 않고, 최단거리 경로만 탐색하는 기능만을 담당하게 한다.
+       
 
 
 
