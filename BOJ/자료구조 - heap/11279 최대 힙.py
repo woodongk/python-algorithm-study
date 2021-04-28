@@ -40,6 +40,7 @@
 0
 0
 """
+
 import sys
 input = sys.stdin.readline
 import heapq
@@ -62,4 +63,6 @@ if __name__ == '__main__':
 
     for i in re:
         print(i)
+
+
 
