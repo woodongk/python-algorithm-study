@@ -51,11 +51,10 @@ def solution(jewels, bags):
         # 가능한 모든 보석,, 어차피 현재 bag이 작은 순서라서 최소값보다 작으면 다 들어감
         while True:
             if jewels and bag_weight >= jewels[0][0]:
-                heapq.heappush(capa_jewels, -jewels[0][1])  # max heap
-                heapq.heappop(jewels)
+                w, v = heapq.heappop(jewels)
+                heapq.heappush(capa_jewels, -v)  # max heap
             else:
                 break
-
         if capa_jewels:
             value += -(heapq.heappop(capa_jewels))
 
