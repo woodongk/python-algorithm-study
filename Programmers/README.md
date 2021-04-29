@@ -8,3 +8,7 @@
 | _ | 구명보트 	| https://programmers.co.kr/learn/courses/30/lessons/42885	| ✔   | |
 | _ | 전화번호 목록 	| https://programmers.co.kr/learn/courses/30/lessons/42577	|  ✔⏳🤨   | 효율성 문제.. |
 | _ | 등굣길    	| https://programmers.co.kr/learn/courses/30/lessons/42898 	|  ❌⏳  | 인풋 오류 있다고 함, 나중에 체크 |
+| 2020 카카오 인턴 기출 | 키패드 누르기 | https://programmers.co.kr/learn/courses/30/lessons/67256 	| ✔  |  |
+| 2020 카카오 인턴 기출 | 수식 최대화 | https://programmers.co.kr/learn/courses/30/lessons/67257?language=python3 	| ❌⏳  | |
+
+

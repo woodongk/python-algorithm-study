@@ -39,7 +39,7 @@
 | 13460  |  구슬 탈출 2    | https://www.acmicpc.net/problem/13460  	|   ❌ ⏳  	| 어렵다  |    
 | 17472  |  다리 만들기 2    | https://www.acmicpc.net/problem/17422  	|   ✔ ⏳   	| 드디어 맞았다!! 감격 |   
 | 17144  |  미세먼지 안녕!   | https://www.acmicpc.net/problem/17144  	|   ❌ ⏳ ✔   	| 토할것같아  |  
-| 16236  |  아기상어   | https://www.acmicpc.net/problem/16236  	|   ⏳ ✔   	| 로직은 맞았는데 구현 템플릿 외우기 |
+| 16236  |  아기상어   | https://www.acmicpc.net/problem/16236  	|   ⏳ ✔   	| 로직은 맞았는데 구현 템플릿 외우기, 최단거리문제! |
 
 
 - 최단 거리 문제는 주로 `bfs`

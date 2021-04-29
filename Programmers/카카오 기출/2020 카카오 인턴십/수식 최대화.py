@@ -1,8 +1,8 @@
 import re
-import collections
+import itertools
+from copy import deepcopy
 
 
-# infix to postfix 응용 문제 같음
 def cal(num1, num2, operator):
     if operator == '*':
         return num1 * num2
@@ -13,62 +13,48 @@ def cal(num1, num2, operator):
 
 
 def solution(expression):
-    # 연산자와 피연산자 받기
-    expression_queue = collections.deque([i.strip(' ') for i in re.split(r'(\W+)', expression)])
-    operators = list(set([i for i in re.split(r'[\w]',expression) if i != ''])) # 연산자]
 
-    print(operators)
-    print(expression_queue)
+    # 숫자와 연산자를 분리한다.
+    expr_lst = [x.strip(' ') for x in re.split('(\W+)', expression)]
 
-    orders = ['*', '-', '+'] # 실험, 우선순위 순서
+    # 연산자와 피연산자를 따로따로 받아준다.
+    numbers = [] # 피연산자
+    operators = [] # 연산자
+    for tk in expr_lst:
+        if tk in ['*', '-', '+']:
+            operators.append(tk)
+        else:
+            numbers.append(tk)
 
-    orders = {
-        '*' : 3,
-        '-' : 2,
-        '+' : 1
-    }
+    # 순열조합 라이브러리 사용하여 3! 경우의 수 order list 받아준다.
+    orders_lst = list(itertools.permutations(['*', '-', '+'], 3))
+    values = []
+    for order in orders_lst:
+        tmp_nums = deepcopy(numbers)
+        tmp_ops = deepcopy(operators)
+        for op in order:
+            while True:
+                # 연산자가 존재하면 while 문 작동하게끔.
+                if op in tmp_ops:
+                    # 연산자의 인덱스를 찾아서 저장한 뒤, 숫자들의 배열에서 같은 인덱스와 그 다음 인덱스를 꺼내 계산해준다.
+                    idx = tmp_ops.index(op)
+                    num1, num2 = int(tmp_nums[idx]), int(tmp_nums[idx + 1])
+                    cal_result = cal(num1, num2, op)
 
-    op_stack = [] # 연산자 넣는 스택
-    numbers = [] # postfix expression
-    result = []
-
-    # queue 가 빌 떄까지
-    while True:
-        while expression_queue:
-            op = expression_queue.popleft()
-            print("현재 연산자 : {}".format(op))
-
-            if op.isdigit(): # 숫자일 경우
-                numbers.append(op)
-            else: # 연산자 일 경우
-                if len(op_stack) == 0 or orders[op_stack[-1]] <= orders[op]: # top 보다 연산자 우선순위 클 경우 넣기
-                    op_stack.append(op)
+                    # 스택에서 제거해준다. 이때 인덱스가 밀린 상태니까 주의할 것
+                    tmp_ops.pop(idx)
+                    tmp_nums.pop(idx)
+                    tmp_nums.pop(idx)
+                    # 결과값은 숫자 스택에 다시 넣어준다.
+                    tmp_nums.insert(idx, cal_result)
+                # 연산자가 존재하지 않으므로 다음 연산자로 넘어간다.
                 else:
-                    while orders[op_stack[-1]] > orders[op]:
-                        next_op = op_stack.pop()
-                        num1 = int(numbers.pop())
-                        num2 = int(numbers.pop())
+                    break
+        values.append(abs(cal_result))
 
-                        result.append(cal(num1, num2, next_op))
-                        print(num1, num2, next_op, result)
-                        if len(op_stack) == 0:
-                            break
-                    result.append(op) # 현재 연산자 넣고,
-            print("연산자 스택 : {}, 숫자 스택 {}".format(op_stack, numbers))
-
-
-    while op_stack or numbers:
-        next_op = op_stack.pop()
-        num1 = int(numbers.pop())
-        num2 = int(numbers.pop())
-        result.append(cal(num1, num2, next_op))
-    print(result)
-    ans = cal(result[0], result[1], result[2])
-
-    return ans
+    return max(values)
 
 
 if __name__ == '__main__':
-    print(solution("5 * 1 - 3 * 5"))
-    print()
+
     print(solution("100-200*300-500+20"))
