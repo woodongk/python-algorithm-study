@@ -72,6 +72,7 @@ def simple_quick_sort(array):
 
 if __name__ == '__main__':
     array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+    array2 = [3, 3, 1, 5]
     print("선택 정렬 결과 :")
     print(selection_sort(array))
     print()
