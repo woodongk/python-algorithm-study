@@ -10,7 +10,14 @@
 def find_parent(parent, x):
     # 루트 노드가 아니라면 루트 노드 찾을 때까지 호출
     if parent[x] != x:
-        parent[x] = find_parent(parent, parent[x])
+        return find_parent(parent, parent[x])
+    return x
+
+
+def find_parent_compress(parent, x):
+    # 루트 노드가 아니라면 루트 노드 찾을 때까지 호출
+    if parent[x] != x:
+        parent[x] = find_parent_compress(parent, parent[x])
     return parent[x]
 
 
@@ -37,7 +44,7 @@ if __name__ == '__main__':
     # 각 원소가 속한 집합 추력하기
     print("각 원소 속한 집합: ",end='')
     for i in range(1, v + 1):
-        print(find_parent(parent, i), end=' ')
+        print(find_parent_compress(parent, i), end=' ')
     print()
 
     print("부모 테이블: ",end='')
