@@ -40,6 +40,8 @@
 | 17472  |  다리 만들기 2    | https://www.acmicpc.net/problem/17422  	|   ✔ ⏳   	| 드디어 맞았다!! 감격 |   
 | 17144  |  미세먼지 안녕!   | https://www.acmicpc.net/problem/17144  	|   ❌ ⏳ ✔   	| 토할것같아  |  
 | 16236  |  아기상어   | https://www.acmicpc.net/problem/16236  	|   ⏳ ✔   	| 로직은 맞았는데 구현 템플릿 외우기, 최단거리문제! |
+| 19637  |  IF문 좀 대신 써줘   | https://www.acmicpc.net/problem/19637 	|   ✔   	| binary search 연습 문제! |
+| 2623  |  음악 프로그램 | https://www.acmicpc.net/problem/2623	|   ❌ ⏳ ✔ 	| `위상정렬` `다시`  |
 
 
 - 최단 거리 문제는 주로 `bfs`

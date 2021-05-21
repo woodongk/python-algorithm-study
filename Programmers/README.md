@@ -15,5 +15,6 @@
 | 카카오 기출  | 후보키    | https://programmers.co.kr/learn/courses/30/lessons/42890 	| ✔  | 좀 더 간결하게 다시 해보기 |
 | 카카오 기출  | 합승 택시 요금  | https://programmers.co.kr/learn/courses/30/lessons/72413 	| ✔  | |
 | -  | 가장 먼 노드  | https://programmers.co.kr/learn/courses/30/lessons/49189 	| ✔⏳  | `다시` bfs 에서 level 세기 |
+| 카카오 기출   | 프렌즈4블록 | https://programmers.co.kr/learn/courses/30/lessons/17679 	| ✔  | `다시`  |
 
 
